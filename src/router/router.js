@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Home from './views/Home.vue'
-import EmployeesList from './components/EmployeeList.vue'
-import NewEmployee from './components/NewEmployee.vue'
-import Graphys from './components/Graphys.vue'
+import Home from '../views/Home.vue'
+import EmployeesList from '../components/EmployeeList.vue'
+import NewEmployee from '../components/NewEmployee.vue'
+import Graphys from '../components/Graphys.vue'
 
 
 Vue.use(Router);
