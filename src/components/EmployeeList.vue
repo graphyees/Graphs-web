@@ -10,16 +10,15 @@
           <th scope="col">NAME</th>
           <th scope="col">SALARY</th>
           <th scope="col">DEPARTMENT</th>
-          <th scope="col">#</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(employee, index) in data" v-bind:key="index">
           <th scope="row">{{index+1}}</th>
           <td>{{employee.name}}</td>
-          <td>{{employee.salary}}</td>
-          <td>{{employee.department}}</td>
-          <td>X</td>
+          <td>{{employee.salary}} Euros</td>
+          <td>{{employee.department}}</td>    
+          <td> <button type="button" value="Submit" class="btn btn-danger" @click = deleteEmployee()>X</button></td>
         </tr>
       </tbody>
     </table>
@@ -53,8 +52,24 @@ export default {
       console.log(error)
     })
   },
+  methods: {
+    deleteEmployee: function (id) {
+      axios.delete('http://localhost:3001/employees-list/delete/' + id)
+        .then(response => {
+            if (event) event.preventDefault()
+            alert("Employee deleted\n" + error)
+        })
+          .catch(error => {
+            console.log(error)
+            if (event) event.preventDefault()
+              alert("Error deleting\n" + error)
+        })
+    } 
+  }
 }
 </script>
+
+
 
 <style scoped>
 ul {
