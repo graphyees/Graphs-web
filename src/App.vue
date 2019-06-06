@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/" name="home">Home</router-link>
     </div>
-    <div>
+    <div class="logo">
       <img alt="Vue logo" src="./assets/logo.png">
       <Home/>
       <router-view />

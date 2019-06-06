@@ -7,6 +7,11 @@ import vueAxios from 'vue-axios'
 
 import store from "./store/dataStore"
 
+import Chartkick from 'chartkick'
+import VueChartkick from 'vue-chartkick'
+
+Vue.use(VueChartkick, { Chartkick })
+
 Vue.config.productionTip = false;
 
 new Vue({
