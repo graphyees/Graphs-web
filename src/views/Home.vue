@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <ul class="list-group-flush">
+
       <li class="list-group-item">
         <div class="card bg-info">
           <div class="card-body">
@@ -43,12 +44,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 ul {
+  text-align: center;
   list-style-type: none;
-  padding: 0;
+  padding: 10px;
+  box-sizing: content-box;
 }
 li {
   display: flow-root;
-  margin: 5px 10px;
+  margin: 15px 20px;
+  -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
 }
 a {
   color: #42b983;

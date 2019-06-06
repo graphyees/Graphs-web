@@ -7,39 +7,17 @@ import vueAxios from 'vue-axios'
 
 import store from "./store/dataStore"
 
+import Chartkick from 'chartkick'
+import VueChartkick from 'vue-chartkick'
+
+Vue.use(VueChartkick, { Chartkick })
+
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   render: h => h(App),
- 
 }).$mount("#app");
 
 Vue.use(axios, vueAxios);
-
-// new Vue({
-//   el: "#app",
-//   router,
-//   //store,
-//   //template: '<App/>',
-//   component: {
-//     App
-//   },
-//   //render: h => h(App),
-//   data() {
-//     return {
-//       info: null
-//     };
-//   },
-//   // mounted() {
-//   //   axios
-//   //     .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-//   //     .then(response => {
-//   //       console.log(response);
-//   //      })
-//   //      .catch(error => {
-//   //       console.log(error);
-//   //      });
-//   // }
-// });
