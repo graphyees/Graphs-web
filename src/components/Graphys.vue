@@ -1,14 +1,16 @@
 <template>
   <div class="hello">
-   <h1>Graficas </h1>
-      <div class="graphys">
-        <div class="card m-5 mx-2 p-1">
-          <pie-chart class="column-chart" :data="chartDataPie" :download="true" :donut="false"></pie-chart>
-        </div>
-        <div class="card m-5 mx-2 p-1">
-          <column-chart class="column-chart" :data="chartDataBar" :download="true" :stacked="true"></column-chart>
-        </div>
+   <h1>GRAPHYS</h1>
+      <div class="graphys mt-5">
         <button class="btn btn-info" @click="fillDataCharts()">Visualizar/Cargar</button>
+        <div class="card mb-5 mt-3 mx-5 p-1 column-chart">
+          <p>Sueldo medio por departamento</p>
+          <pie-chart :data="chartDataPie" :download="true" :donut="false"></pie-chart>
+        </div>
+        <div class="card m-5 mx-2 p-1 column-chart">
+          <p>Numero de empleados por departamento</p>
+          <column-chart :data="chartDataBar" :download="true" :stacked="true"></column-chart>
+        </div>
       </div>
   </div>
 </template>
@@ -69,10 +71,6 @@ export default {
       this.chartDataBar = dataBar;
      }
    },
-
-   fillDataPie(){
-
-   }
 }
 
 </script>
@@ -95,7 +93,11 @@ a {
   max-width: 600px;
   margin:  150px auto;
 }
-
+.card{
+  -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+}
 .column-chart{
   background-color:lavender;
 }
