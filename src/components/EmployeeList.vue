@@ -1,11 +1,11 @@
 
 <template>
-  <div class="hello">
+  <div>
    <h1>Employee list </h1>
    <div>
-     <table class="table table-striped table-bordered table-sm">
+     <table class="table table-striped table-bordered table-sm m-3">
       <thead class="thead-dark">
-        <tr>
+        <tr class="thead-dark">
           <th scope="col">#</th>
           <th scope="col">NAME</th>
           <th scope="col">SALARY</th>
@@ -14,11 +14,11 @@
       </thead>
       <tbody>
         <tr v-for="(employee, index) in data" v-bind:key="index">
-          <th scope="row">{{index+1}}</th>
-          <td>{{employee.name}}</td>
-          <td>{{employee.salary}} Euros</td>
-          <td>{{employee.department}}</td>    
-          <td> <button type="button" value="Submit" class="btn btn-danger" @click = deleteEmployee()>X</button></td>
+          <th class="table-light" scope="row">{{index+1}}</th>
+          <td class="table-light">{{employee.name}}</td>
+          <td class="table-light">{{employee.salary}} Euros</td>
+          <td class="table-light">{{employee.department}}</td>    
+          <td class="table-light"> <button type="button" value="Submit" class="btn btn-danger btn-sm" @click = deleteEmployee()>X</button></td>
         </tr>
       </tbody>
     </table>
@@ -72,6 +72,12 @@ export default {
 
 
 <style scoped>
+table{
+  width: 95%;
+  -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+}
 ul {
   list-style-type: none;
   padding: 0;
