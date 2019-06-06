@@ -2,14 +2,13 @@
   <div class="hello">
    <h1>Graficas </h1>
       <div class="graphys">
-        <div class="card m-5 mx-2">
-          <pie-chart :data="chartDataPie" :download="true" :donut="false"></pie-chart>
-          <button class="btn btn-info" @click="fillDataPie()">Visualizar/Cargar</button>
+        <div class="card m-5 mx-2 p-1">
+          <pie-chart class="column-chart" :data="chartDataPie" :download="true" :donut="false"></pie-chart>
         </div>
-        <div class="card m-5 mx-2">
+        <div class="card m-5 mx-2 p-1">
           <column-chart class="column-chart" :data="chartDataBar" :download="true" :stacked="true"></column-chart>
-          <button class="btn btn-info" @click="fillDataBar()">Actualizar</button>     
         </div>
+        <button class="btn btn-info" @click="fillDataCharts()">Visualizar/Cargar</button>
       </div>
   </div>
 </template>
@@ -27,16 +26,13 @@ export default {
   data () {
     return {
       data: [],
-      department: ["admin", "contracts", "proyects", "rrhh", "support"],
+      departments: ["admin", "contracts", "proyects", "rrhh", "support"],
       //departamentos, sueldo medio departamento
       chartDataPie:[],
       //departamentos, numero empleados
-      chartDataBar:{'2017-05-13': 2, '2017-05-14': 5},
+      chartDataBar:[],
       loading: true
     }
-  },
-  beforeCreate(){
-
   },
   beforeMount(){
    axios.get('http://localhost:3001/employees-list')
@@ -47,32 +43,36 @@ export default {
     .catch(error => {
       console.log(error)
     })
-  this.fillDataPie();
+  this.fillDataCharts();
   },
   mounted () {
   
   },
   methods: {
-   fillDataPie(){
+   fillDataCharts(){
      const data = this.data
      let dataPie=[[]]; 
-     this.department.forEach((element, index) => {
+     let dataBar=[[]];
+     this.departments.forEach((department, index) => {
        let numberPeopleDpartment = 0;
        let salary = 0;
        data.map( user => {
-          if(user.department==this.department[index]){
+          if(user.department==this.departments[index]){
             salary+=user.salary;
             numberPeopleDpartment++;
           }
         })
-      dataPie[index] = [element, Math.round(salary/numberPeopleDpartment)]
+      dataPie[index] = [department, Math.round(salary/numberPeopleDpartment)]
+      dataBar[index] = [department, numberPeopleDpartment]
      });
-      this.chartDataPie =  dataPie
+      this.chartDataPie = dataPie;
+      this.chartDataBar = dataBar;
      }
    },
-   fillDataBar(){
-     
-   },
+
+   fillDataPie(){
+
+   }
 }
 
 </script>
