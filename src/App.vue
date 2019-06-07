@@ -24,7 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: -webkit-fill-available;
+  height: 100%;;
 
   background: rgba(218,247,191,1);
   background: -moz-linear-gradient(-45deg, rgba(218,247,191,1) 0%, rgba(218,247,191,1) 8%, rgba(252,255,245,1) 100%);
