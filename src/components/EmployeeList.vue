@@ -18,7 +18,7 @@
           <td class="table-light">{{employee.name}}</td>
           <td class="table-light">{{employee.salary}} Euros</td>
           <td class="table-light">{{employee.department}}</td>    
-          <td class="table-light"> <button type="button" value="Submit" class="btn btn-danger btn-sm" @click = deleteEmployee()>X</button></td>
+          <td class="table-light"> <button type="button" value="Submit" class="btn btn-danger btn-sm" @click = deleteEmployee(employee.id)>X</button></td>
         </tr>
       </tbody>
     </table>
@@ -41,28 +41,34 @@ export default {
       loading: true
     }
   },
+  beforeMount(){
+    axios.get('http://localhost:3001/employees-list')
+      .then(response => {
+        this.data = response.data
+        this.loading = false
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
   mounted () {
-  axios.get('http://localhost:3001/employees-list')
-    .then(response => {
-      this.data = response.data
-      this.loading = false
-      console.log("Que tengo ->", this.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+
   },
   methods: {
     deleteEmployee: function (id) {
       axios.delete('http://localhost:3001/employees-list/delete/' + id)
         .then(response => {
-            if (event) event.preventDefault()
-            alert("Employee deleted\n" + error)
+            if (event){
+              event.preventDefault()
+              alert("Employee deleted!!")
+              this.$mount()
+            } 
         })
           .catch(error => {
-            console.log(error)
-            if (event) event.preventDefault()
+            if (event) {
+              event.preventDefault()
               alert("Error deleting\n" + error)
+            }
         })
     } 
   }
