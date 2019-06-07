@@ -51,12 +51,12 @@ ul {
 }
 li {
   display: flow-root;
-  margin: 15px 20px;
-  -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+    margin: 40px 100px;
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 8px 8px 0px rgba(0,0,0,0.25);
 }
 a {
   color: #42b983;
 }
+
 </style>

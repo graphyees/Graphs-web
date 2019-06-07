@@ -79,4 +79,15 @@ li {
 a {
   color: #42b983;
 }
+.form-group {
+    margin-bottom: 0rem;
+    background-color: #FAFBE7;
+    margin: 9rem;
+    padding: 2rem;
+    border: 2px solid #CCC;
+    text-align: center;
+    margin: 40px 100px;
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 8px 8px 0px rgba(0,0,0,0.25);
+}
 </style>
