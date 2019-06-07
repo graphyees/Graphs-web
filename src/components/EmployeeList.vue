@@ -56,20 +56,22 @@ export default {
   },
   methods: {
     deleteEmployee: function (id) {
-      axios.delete('http://localhost:3001/employees-list/delete/' + id)
-        .then(response => {
-            if (event){
-              event.preventDefault()
-              alert("Employee deleted!!")
-              this.$mount()
-            } 
-        })
-          .catch(error => {
-            if (event) {
-              event.preventDefault()
-              alert("Error deleting\n" + error)
-            }
-        })
+      if (confirm("Do you really want to delete this data?")){
+        axios.delete('http://localhost:3001/employees-list/delete/' + id)
+          .then(response => {
+              if (event){
+                event.preventDefault()
+                alert("Employee deleted!!")
+                this.$mount()
+              } 
+          })
+            .catch(error => {
+              if (event) {
+                event.preventDefault()
+                alert("Error deleting\n" + error)
+              }
+          })
+      }
     } 
   }
 }

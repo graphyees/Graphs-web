@@ -53,14 +53,16 @@ export default {
             name: name,
             salary: salary,
             department: department
-        }).then(response => {
+          }).then(response => {
+            if (event){
+              event.preventDefault();
+              alert("Employee registered")
+            }             
+          }).catch(error => {
             if (event) event.preventDefault()
-            alert("Employee registered")
-        }).catch(error => {
-            console.log(error);
-        if (event) event.preventDefault()
-          alert("Employee not registered\n" + error)
+            alert("Employee not registered\n" + error)
         });
+      event.target.reset();
     } 
   }
 }
