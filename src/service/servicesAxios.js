@@ -1,5 +1,4 @@
 class servicesAxios {
-
   axios
   baseURL
 
@@ -13,7 +12,7 @@ class servicesAxios {
   }
 
   createNew(){
-    return this.axios.post('xx')
+    return this.axios.post(this.baseURL+'/newemployee')
   }
 }
 

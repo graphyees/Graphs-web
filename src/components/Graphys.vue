@@ -9,7 +9,7 @@
         </div>
         <div class="card m-5 mx-2 p-1 column-chart">
           <p>Numero de empleados por departamento</p>
-          <column-chart :data="chartDataBar" :download="true" :stacked="true"></column-chart>
+          <column-chart :data="chartDataBar" :download="true"></column-chart>
         </div>
       </div>
   </div>
@@ -41,14 +41,11 @@ export default {
     .then(response => {
       this.data = response.data
       this.loading = false
+      this.fillDataCharts();
     })
     .catch(error => {
       console.log(error)
     })
-  this.fillDataCharts();
-  },
-  mounted () {
-  
   },
   methods: {
    fillDataCharts(){
@@ -71,6 +68,9 @@ export default {
       this.chartDataBar = dataBar;
      }
    },
+  mounted () {
+  
+  },
 }
 
 </script>
