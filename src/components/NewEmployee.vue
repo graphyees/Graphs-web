@@ -21,7 +21,7 @@
             <option>rrhh</option>
           </select>
         </div>
-          <button type="button" value="Submit" class="btn btn-success" @click = sendEmployeeData(name,salary,department)>Add</button>
+          <button type="button" value="Submit" class="btn btn-success" @click = onFormSubmit(name,salary,department)>Add</button>
       </form>
     </div>
   </div>
@@ -45,10 +45,9 @@ export default {
     }
   },
   mounted(){
-    this.sendEmployeeData
   },
   methods: {
-    sendEmployeeData: function (name, salary, department) {
+    onFormSubmit: function (name, salary, department) {
         axios.post('http://localhost:3001/my-employees/newemployee', {
             name: name,
             salary: salary,
@@ -62,7 +61,8 @@ export default {
             if (event) event.preventDefault()
             alert("Employee not registered\n" + error)
         });
-      event.target.reset();
+      this.name='';
+      this.salary=null;
     } 
   }
 }
